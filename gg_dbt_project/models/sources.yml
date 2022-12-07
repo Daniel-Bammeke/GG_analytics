@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+- name: raw_data
+  description: 'This sources contains all the raw data required for this analytics exercise.'
+  database: postgres
+  schema: gg_analytics
+  tables:
+  - name: partners
+    description: 'This table contains data of patners, such as their ids, their category etc.'  
+  - name: referrals
+    description: 'This table contains information on referrals, partners who the referrals are attributed to, time information and the outcome of the referrals.'
+  - name: sales_people
+    description: 'This table contains the names of sales staff and their locations.'  
