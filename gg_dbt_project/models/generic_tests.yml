@@ -161,7 +161,7 @@ models:
         tests:
           - not_null
 
-  - name: conversions_by_country
+  - name: conversion_by_country
     description: conversions/ successful referrals
     columns: 
       - name: country
