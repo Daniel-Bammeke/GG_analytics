@@ -39,4 +39,98 @@ models:
         tests:
           - accepted_values:
               values: ['UK', 'Singapore', 'HongKong']
- 
+  
+  - name: stg_referrals
+    description: Table of all leads by gotten by partners
+    columns: 
+      - name: id
+        description: lead id or serial number.
+        tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: The date and time that each lead was registered in the database.
+        tests:
+          - not_null
+      - name: updated_at
+        description: The date and time that the status of each lead was updated.
+        tests:
+          - not_null
+      - name: company_id
+        description: id or serial number of leads.
+        tests:
+          - not_null
+      - name: partner_id
+        description: The id of patrner associated with respective leads.
+        tests:
+          - not_null
+      - name: consultant_id
+        description: The id of consultants asscoiated with partner ids.
+        tests:
+          - not_null
+      - name: status
+        description: The status of each lead.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['successful', 'disinterested', 'pending']
+      - name: is_outbound
+        description: Indicates if there was an upsell, hence commission for Get ground.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1']
+
+  - name: stg_referral_partners
+    description: Table of all leads with respective partners, partner types and GG-assigned lead sales/ account managers.
+    columns: 
+      - name: id
+        description: lead id or serial number.
+        tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: The date and time that each lead was registered in the database.
+        tests:
+          - not_null
+      - name: updated_at
+        description: The date and time that the status of each lead was updated.
+        tests:
+          - not_null
+      - name: company_id
+        description: id or serial number of leads.
+        tests:
+          - not_null
+      - name: partner_id
+        description: The id of patrner associated with respective leads.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_partners')
+              field: id  
+      - name: consultant_id
+        description: The id of consultants asscoiated with partner ids.
+        tests:
+          - not_null
+      - name: status
+        description: The status of each lead.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['successful', 'disinterested', 'pending']
+      - name: is_outbound
+        description: Indicates if there was an upsell, hence commission for Get ground.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1']
+      - name: partner_type
+        description: Indicates if there was an upsell, hence commission for Get ground.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']        
+      - name: lead_sales_contact
+        description: The Getground sales personnel assigned to individual partners (accounts).
+        tests:
+          - not_null
