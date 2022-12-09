@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_partners
+    description: Partners/ Consultants
+    columns: 
+      - name: id
+        description: The identity for the individual partners.
+        tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: The date and time that the respective partners were signed up.
+        tests:
+          - not_null
+      - name: updated_at
+        description: The date and time that the partners profiles or information were updated.
+        tests:
+          - not_null
+      - name: partner_type
+        description: The category that the individual partners fall under.
+        tests:
+          - not_null
+      - name: lead_sales_contact
+        description: The Getground sales personnel assigned to individual partners (accounts).
+        tests:
+          - not_null
+
+  - name: stg_sales_people
+    description:  Get ground sales personnel
+    columns: 
+      - name: lead_sales_contact
+        description: List of Get ground key account managers.
+        tests:
+          - unique
+          - not_null
+      - name: country
+        description: The identity for the individual partners.
+        tests:
+          - accepted_values:
+              values: ['UK', 'Singapore', 'HongKong']
+ 
