@@ -125,12 +125,130 @@ models:
           - accepted_values:
               values: ['0', '1']
       - name: partner_type
-        description: Indicates if there was an upsell, hence commission for Get ground.
+        description: The partner category.
         tests:
           - not_null
           - accepted_values:
               values: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']        
       - name: lead_sales_contact
         description: The Getground sales personnel assigned to individual partners (accounts).
+        tests:
+          - not_null
+
+  - name: referral_by_consultant
+    description: Number of referrals by each consultant
+    columns: 
+      - name: consultant_id
+        description: ID of consultants.
+        tests:
+          - unique
+          - not_null
+      - name: no_of_referrals
+        description: The number of referral per the definition in the 'read me' file.
+        tests:
+          - not_null
+
+  - name: referral_by_partner type
+    description: referrals based on partner type
+    columns: 
+      - name: partner_type
+        description: category of partner.
+        tests:
+          - unique
+          - not_null
+      - name: no_of_referrals
+        description: The number of referral per the definition in the 'read me' file.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']
+
+  - name: conversions_by_country
+    description: conversions/ successful referrals
+    columns: 
+      - name: country
+        description: countries - 'Unknown' for sales people who have not been registered on the sales people list.
+        tests:
+          - unique
+          - not_null
+      - name: leads_per_month
+        description: The number of leads by consultants.
+        tests:
+          - not_null
+      - name: conversions_per_month
+        description: The number of leads by consultants.
+        tests:
+          - not_null
+
+  - name: key_account_manager_performance
+    description: key account managers' appraisal.
+    columns: 
+      - name: lead_sales_contact
+        description: GG sales personnel
+        tests:
+          - unique
+          - not_null
+      - name: average_monthly_conversions
+        description: The number of conversions per month.
+        tests:
+          - not_null
+
+  - name: conversions_partner_type
+    description: Number of successful leads per each partner category.
+    columns: 
+      - name: partner_type
+        description: category of partner.
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']
+      - name: no_of_leads
+        description: The number of leads by each partner type.
+        tests:
+          - not_null
+      - name: no_of_conversions
+        description: The number of successful leads by each partner type.
+        tests:
+          - not_null
+      - name: conversion_rate
+        description: The percentage of leads that turn out successful.
+        tests:
+          - not_null
+
+  - name: conversion_per_partner
+    description: Number of successful leads per consultant per month.
+    columns: 
+      - name: consultant_id
+        description: ids of consultants associated with partners.
+        tests:
+          - unique
+          - not_null
+      - name: no_of_leads
+        description: The number of leads by each consultant.
+        tests:
+          - not_null
+      - name: no_of_conversions
+        description: The number of successful leads by each consultant.
+        tests:
+          - not_null
+      - name: conversion_rate
+        description: The percentage of leads that turn out successful.
+        tests:
+          - not_null
+      - name: month_since_first_lead
+        description: The number of months since a partner or consultant got their first lead.
+        tests:
+          - not_null
+      - name: leads_per_month
+        description: The number of leads per month.
+        tests:
+          - not_null
+      - name: conversions_per_month
+        description: The number of conversions per month.
+        tests:
+          - not_null
+      - name: lead_sales_contact
+        description: GG sales personnel.
         tests:
           - not_null
