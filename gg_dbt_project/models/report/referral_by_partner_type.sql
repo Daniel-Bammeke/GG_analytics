@@ -1,3 +1,7 @@
+{{ config(
+    tags=["referral", "kpi"]
+) }}
+
 select
     partner_type,
     count(distinct(company_id)) no_of_referrals

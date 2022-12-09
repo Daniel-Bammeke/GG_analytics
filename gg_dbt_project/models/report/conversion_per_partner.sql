@@ -1,3 +1,7 @@
+{{ config(
+    tags=["conversion", "partner", "month", "kpi"]
+) }}
+
 with total_instances as 
 (select
     consultant_id,
@@ -46,6 +50,7 @@ from conversion_rate
 left join months_of_active_operation 
 on conversion_rate.consultant_id = months_of_active_operation.consultant_id
 order by consultant_id),
+
 
 sales_sort as
 (

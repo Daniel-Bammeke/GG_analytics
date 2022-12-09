@@ -1,3 +1,7 @@
+{{ config(
+    tags=["staging"]
+) }}
+
 with partners as
 (
     select *

@@ -1,3 +1,7 @@
+{{ config(
+    tags=["staging","referral"]
+) }}
+
 with referrals as
 (
     select *

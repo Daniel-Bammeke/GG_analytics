@@ -1,3 +1,7 @@
+{{ config(
+    tags=["staging","referral"]
+) }}
+
 select 
     referrals.*,
     coalesce(partners.partner_type,'Not Available') partner_type,

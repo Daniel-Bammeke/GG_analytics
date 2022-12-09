@@ -2,15 +2,15 @@ version: 2
 
 models:
   - name: stg_partners
-    description: Partners/ Consultants
+    description: "Partners/ Consultants"
     columns: 
       - name: id
-        description: The identity for the individual partners.
+        description: "The identity for the individual partners."
         tests:
           - unique
           - not_null
       - name: created_at
-        description: The date and time that the respective partners were signed up.
+        description: "The date and time that the respective partners were signed up."
         tests:
           - not_null
       - name: updated_at
@@ -148,7 +148,7 @@ models:
         tests:
           - not_null
 
-  - name: referral_by_partner type
+  - name: referral_by_partner_type
     description: referrals based on partner type
     columns: 
       - name: partner_type
@@ -160,8 +160,6 @@ models:
         description: The number of referral per the definition in the 'read me' file.
         tests:
           - not_null
-          - accepted_values:
-              values: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']
 
   - name: conversions_by_country
     description: conversions/ successful referrals

@@ -1,3 +1,7 @@
+{{ config(
+    tags=["conversion", "partner_type", "kpi"]
+) }}
+
 with total_instances as 
 (select
     partner_type,

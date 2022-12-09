@@ -1,3 +1,7 @@
+{{ config(
+    tags=["referral", "kpi"]
+) }}
+
 select
     consultant_id,
     count(distinct(company_id)) no_of_referrals

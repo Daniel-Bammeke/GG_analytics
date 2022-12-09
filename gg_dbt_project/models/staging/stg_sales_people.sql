@@ -1,3 +1,6 @@
+{{ config(
+    tags=["staging"]
+) }}
 with sales_people as
 (
     select *

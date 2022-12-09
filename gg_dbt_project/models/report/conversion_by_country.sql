@@ -1,3 +1,7 @@
+{{ config(
+    tags=["conversion", "country", "kpi"]
+) }}
+
 select
     sum(partners.leads_per_month) leads_per_month,
     sum(partners.conversions_per_month) conversions_per_month,

@@ -1,3 +1,7 @@
+{{ config(
+    tags=["conversion", "salesperson", "month", "kpi"]
+) }}
+
 select
     lead_sales_contact,
     sum(conversions_per_month) average_monthly_conversions
